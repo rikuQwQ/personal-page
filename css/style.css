@@ -1,0 +1,493 @@
+* {
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
+
+body {
+    background-image: url("../images/background_1.png");
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Days One', sans-serif;
+    color: #DEDEDE;
+}
+
+.main {
+    width: 600px;
+    height: 600px;
+    background-color: rgba(197, 199, 198, 0.6);
+    display: block;
+    border-radius: 5px;
+}
+
+/*-------------------HEAD----------------------*/
+.card-header {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(263.37deg, rgba(2, 116, 123, 0.64) 0%, rgba(0, 120, 91, 0.33) 100%);
+    box-shadow: 0px 2px 4px rgba(30, 124, 96, 0.25);
+    border-radius: 5px;
+    display: flex;
+}
+
+.card-left {
+    width: 40%;
+    height: 100%;
+}
+
+.card-left-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    padding: 5% 0;
+}
+
+.icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.15);
+}
+
+.nickname {
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+    width: 70%;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+}
+
+.nickname-text {
+    width: 90%;
+    margin-left: 15px;
+}
+
+.nickname-change {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-right: 10px;
+}
+
+.uid {
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    border-radius: 8px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.header-item {
+    margin-top: 5px;
+}
+
+.card-right {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.card-rank {
+    display: flex;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 3px 9px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.card-ar-number {
+    margin-left: 3px;
+}
+
+.card-experience {
+    margin-top: 15px;
+}
+
+.card-experience-container {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 11px 30px;
+    top: 50%
+}
+
+.card-exp-scale {
+    background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0.84) 100%);
+    height: 9px;
+    width: 100%;
+    opacity: 0.4;
+    border-radius: 3px;
+}
+
+.card-exp-scale:hover .card-exp-scale-inner {
+    background: linear-gradient(270.14deg, rgb(121, 255, 230) 0.69%, rgb(161, 255, 99) 100%);
+    opacity: 0.8;
+}
+
+.card-exp-scale-inner {
+    background: linear-gradient(270.14deg, rgba(0, 255, 209, 0.65) 0.69%, rgba(82, 255, 0, 0.8) 100%);
+    opacity: 0.4;
+    height: 9px;
+    width: 70%;
+    border: 0.2px solid rgba(0, 0, 0, 0.75);
+    filter: blur(1px);
+    border-radius: 3px;
+    transition: opacity 300ms;
+}
+
+.exp-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+/*------------------BODY----------------------*/
+.card-body {
+    height: 370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.card-body-wrapper {
+    color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+}
+
+.card-body-wrapper img {
+    width: 70px;
+    height: 70px;
+    transition: width 100ms, height 100ms;
+}
+
+.card-cell:hover {
+    box-shadow: 0px 0px 12px 6px rgb(255 255 255 / 36%);
+}
+
+.card-cell:hover img {
+    width: 80px;
+    height: 80px;
+}
+
+.card-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 2px;
+    transition: box-shadow 100ms;
+    border-radius: 8px;
+}
+
+/*-----------------popup----------------*/
+.popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    transition: all 0.8s ease;
+    overflow-y: auto;
+}
+
+.popup-area {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+.popup:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup:target .popup-contnet {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0px, 0px);
+}
+
+.popup-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-contnet {
+    border-radius: 10px;
+    position: relative;
+    background: linear-gradient(263.37deg, rgb(2, 116, 123) 0%, rgb(0, 120, 91) 100%);
+    height: fit-content;
+    max-width: 500px;
+    min-width: 500px;
+    padding: 20px 30px;
+    transition: all 0.8s ease;
+    transform: translate(0px, -100%);
+    opacity: 0;
+}
+
+.popup-closing {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.popup-title {
+    font-size: 24px;
+}
+
+/*---------about me------------*/
+#aboutme img {
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+/*---------character------------*/
+#character .popup-title {
+    display: inline;
+}
+
+#character .popup-text {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.personalities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-16personalities {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.trait {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.bar-wrapper {
+    min-width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.persantage {
+    width: fit-content;
+}
+
+.bar {
+    height: 10px;
+    min-width: 110px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.tactics .bar {
+    margin-right: 5px;
+}
+
+.filler {
+    height: 10px;
+    border-radius: 8px;
+    transition: all ease-out 200ms;
+}
+
+.bar:hover .filler {
+    box-shadow: 0px 0px 5px 2px #fff;
+}
+
+.mind .filler {
+    width: 63%;
+    background-color: #99e5ff;
+}
+
+.energy .filler {
+    width: 64%;
+    background-color: #f1cf87;
+}
+
+.nature .filler {
+    width: 63%;
+    background-color: #82f5c5;
+}
+
+.tactics .filler {
+    background-color: #dca2f7;
+    width: 51%;
+}
+
+.identity .filler {
+    width: 67%;
+    background-color: #e98486;
+}
+
+.traits-title {
+    font-size: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    text-transform: uppercase;
+}
+
+.right {
+    float: right;
+}
+
+.mind .active {
+    color: #99e5ff;
+}
+
+.energy .active {
+    color: #f1cf87
+}
+
+.nature .active {
+    color: #82f5c5;
+}
+
+.tactics .active {
+    color: #dca2f7;
+}
+
+.identity .active {
+    color: #e98486;
+}
+
+/*---------hobbies------------*/
+#hobbies img {
+    width: 50px;
+    height: 50px;
+    margin: 15px 0;
+}
+#hobbies img:hover{
+    animation-play-state: paused;
+}
+
+
+#anime {
+    animation:3s linear infinite;
+    animation-name: anime, size;
+}
+
+#manga{
+    animation: 2s linear infinite alternate-reverse;
+    animation-name: manga, size;
+
+}
+#reading{
+    animation: 4s linear infinite alternate-reverse;
+    animation-name: reading, size;
+}
+#volleyball{ 
+    animation: 4s linear infinite ;
+    animation-name: volleyball, size ;
+}
+
+
+@keyframes anime {
+    20% {
+        transform: translate(200px, 200px);
+    }
+    40%{
+        transform: translate(400px, 100px);
+    }
+    60%{
+        transform: translate(200px, -50px);
+    }
+    80%{
+        transform: translate(100px, 200px);
+    }
+}
+@keyframes manga{
+    0%{
+        
+    }
+    100%{   
+        transform: translateX(400px);
+    }
+}
+@keyframes reading {
+    20% {
+        transform: translate(100px, -170px);
+    }
+    40%{
+        transform: translate(200px, 90px);
+    }
+    60%{
+        transform: translate(400px, -180px);
+    }
+    80%{
+        transform: translate(250px, 90px);
+    }
+}
+@keyframes volleyball {
+    20% {
+        transform: translate(0px, -200px);
+    }
+    40%{
+        transform: translate(400px, -200px);
+    }
+    60%{
+        transform: translate(400px, 0px);
+    }
+    
+}
+@keyframes size {
+    20% {
+        width: 70px;
+        height: 70px;
+    }
+    40%{
+        width: 50px;
+        height: 50px;
+    }
+    60%{
+        width: 70px;
+        height: 70px;
+    }
+    80%{
+        width: 50px;
+        height: 50px;
+    }
+}
